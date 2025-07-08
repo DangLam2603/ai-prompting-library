@@ -10,6 +10,7 @@ export default function Home() {
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const [modalPrompt, setModalPrompt] = useState<Prompt | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [roleSearch, setRoleSearch] = useState("");
 
   useEffect(() => {
     fetchPrompts().then((data) => {
@@ -18,67 +19,87 @@ export default function Home() {
     });
   }, []);
 
-  // Sidebar injection
-  useEffect(() => {
-    const sidebar = document.querySelector(".sidebar");
-    if (sidebar) {
-      sidebar.innerHTML =
-        `<div class='sidebar-title'>Prompt Library</div>` +
-        roles
-          .map(
-            (role) =>
-              `<button class='sidebar-role${
-                selectedRole === role ? " selected" : ""
-              }' data-role='${role}'>${role}</button>`
-          )
-          .join("");
-      sidebar.querySelectorAll(".sidebar-role").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          const role = (e.target as HTMLElement).getAttribute("data-role");
-          setSelectedRole(role);
-        });
-      });
-    }
-  }, [roles, selectedRole]);
+  const filteredRoles = roles.filter((role) =>
+    role.toLowerCase().includes(roleSearch.toLowerCase())
+  );
 
   const filteredPrompts = selectedRole
     ? prompts.filter((p) => p.role === selectedRole)
     : [];
 
   return (
-    <>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginBottom: "1.5rem",
-        }}
-      >
-        <h1
-          className="text-accent"
-          style={{ fontWeight: 800, fontSize: "2.2rem", letterSpacing: "-1px" }}
+    <div className="layout">
+      <aside className="sidebar">
+        <div className="sidebar-title">Prompt Library</div>
+        <input
+          className="sidebar-role-search"
+          placeholder="Search roles..."
+          style={{
+            width: "100%",
+            marginBottom: "1rem",
+            padding: "0.5em 0.8em",
+            borderRadius: 7,
+            border: "1px solid #31343c",
+            background: "#23262f",
+            color: "#f3f4f6",
+            fontSize: "1rem",
+            outline: "none",
+          }}
+          value={roleSearch}
+          onChange={(e) => setRoleSearch(e.target.value)}
+        />
+        <div className="sidebar-role-list">
+          {filteredRoles.map((role) => (
+            <button
+              key={role}
+              className={
+                "sidebar-role" + (selectedRole === role ? " selected" : "")
+              }
+              onClick={() => setSelectedRole(role)}
+            >
+              {role}
+            </button>
+          ))}
+        </div>
+      </aside>
+      <main className="main-content">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            marginBottom: "1.5rem",
+          }}
         >
-          {selectedRole ? selectedRole : "Select a Role"}
-        </h1>
-      </div>
-      <div className="card-grid">
-        {filteredPrompts.map((prompt, idx) => (
-          <PromptCard
-            key={idx}
-            prompt={prompt}
-            onClick={() => {
-              setModalPrompt(prompt);
-              setModalOpen(true);
+          <h1
+            className="text-accent"
+            style={{
+              fontWeight: 800,
+              fontSize: "2.2rem",
+              letterSpacing: "-1px",
             }}
-          />
-        ))}
-      </div>
-      <PromptModal
-        open={modalOpen}
-        prompt={modalPrompt}
-        onClose={() => setModalOpen(false)}
-      />
-    </>
+          >
+            {selectedRole ? selectedRole : "Select a Role"}
+          </h1>
+        </div>
+        <div className="card-grid">
+          {filteredPrompts.map((prompt, idx) => (
+            <PromptCard
+              key={idx}
+              prompt={prompt}
+              onClick={() => {
+                setModalPrompt(prompt);
+                setModalOpen(true);
+              }}
+            />
+          ))}
+        </div>
+        <PromptModal
+          open={modalOpen}
+          prompt={modalPrompt}
+          onClose={() => setModalOpen(false)}
+        />
+      </main>
+    </div>
   );
 }
