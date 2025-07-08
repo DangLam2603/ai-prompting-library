@@ -27,7 +27,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="layout">
+          {/* Sidebar placeholder, to be filled with roles/categories */}
+          <aside className="sidebar">
+            <div className="sidebar-title">Prompt Library</div>
+            {/* Sidebar content will be injected here by the main page */}
+          </aside>
+          <div className="main-content">{children}</div>
+        </div>
       </body>
     </html>
   );
