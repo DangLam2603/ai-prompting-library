@@ -1,18 +1,28 @@
 concept,example
-Persona,You are a 
-Persona,I want you to be a 
-Persona,You are a marketing specialist
-Task,Draft an executive summary email
-Task,Write a project status update
-Task,Create a product launch plan
+Persona,I want you to assume the role of a [POSITION/EXPERT]
+Persona,Act as a [TYPE] professional who understands [TOPIC]
+Persona,You are an expert in [FIELD] with [YEARS] of experience
+Task,Draft an executive summary for [PROJECT/EVENT]
+Task,Write a status update covering [TIME PERIOD/TOPICS]
+Task,"Create a launch plan that includes timeline, budget, and messaging"
+Task, Your task is to [OBJECTIVE]
 Context,for a quarterly review
 Context,for a new product launch
 Context,for a client meeting
-Format,in bullet points
-Format,as a formal letter
-Format,as a concise summary
-Example,Here is a sample executive summary: ...
-Example,Sample project update: ...
-Tone,Use a formal and concise tone
-Tone,Be friendly and encouraging
-Tone,Make it persuasive and confident 
+Context,for an investor pitch deck
+Context,for a cross-functional leadership team
+Format,Provide the response in bullet points.
+Format,Format as a professional email.
+Format,Present the output as a concise summary (under [NUMBER] words).
+Format,Generate using Markdown (with headings and subheadings).
+Format,Use code blocks for structured output.
+Format,"Format in table form with headers: [X], [Y]."
+Format,In a markdown format.
+Example,Here's a sample executive summary for reference:"[INSERT_TEXT]"
+Example,"Example update format status: [X], Next Steps: [Y]"
+Example, Use the input below as reference:[INPUT_HERE]
+Tone,Use a formal and professional tone
+Tone,Make the message friendly and encouraging
+Tone,"Be persuasive and confident, suitable for leadership"
+Tone,"Keep it clear, concise, and neutral"
+Tone,"Inject a motivating tone for internal teams"

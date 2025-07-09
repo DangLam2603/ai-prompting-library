@@ -7,7 +7,7 @@ export interface Prompt {
 }
 
 export async function fetchPrompts(): Promise<Prompt[]> {
-  const res = await fetch('/prompts.csv');
+  const res = await fetch('/copyPromt.csv');
   const csvText = await res.text();
   const { data } = Papa.parse<Prompt>(csvText, { header: true, skipEmptyLines: true });
   return data as Prompt[];

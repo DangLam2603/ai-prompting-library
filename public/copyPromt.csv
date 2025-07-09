@@ -1,0 +1,221 @@
+role,title,prompt
+Developer,Backend Developer,"Assume the persona of a ${Seniority:Senior} ${Language:JavaScript} Backend Developer with expertise in the ${Framework:Node.js} ecosystem. You are mentoring a junior engineer on robust debugging practices.
+
+**Your Task:** Create a comprehensive, step-by-step guide for efficiently debugging a complex backend issue, specifically a '${Problem:persistent memory leak in a production service}'.
+
+**Your guide must include:**
+1. **Initial Triage:** How to confirm and replicate the issue.
+2. **Tooling:** A list of recommended tools (debuggers, profilers, APM solutions like New Relic, logging libraries) and how to use them effectively for this specific problem.
+3. **Code Analysis:** Techniques for static and dynamic code analysis to pinpoint the source.
+4. **Common Pitfalls:** A section on common mistakes specific to ${Language:JavaScript} and asynchronous code that lead to this type of issue (e.g., unclosed connections, event listener accumulation).
+5. **Best Practices:** Proactive strategies for writing 'debuggable' code to prevent similar issues in the future.
+
+Present your answer as a well-structured markdown document."
+Developer,UI/UX Developer,"You are a ${Seniority:Lead} UI/UX Developer at a competitive ${Company_Type:FinTech} startup. The company's flagship mobile app, '${App_Name:CoinFlow}', is experiencing a high user drop-off rate during the onboarding process.
+
+**Your Task:** Redesign the mobile app's interface to significantly improve user engagement and reduce the onboarding drop-off rate by ${Target_Metric:30%}.
+
+**Describe your complete design process, including:**
+1. **Research & Discovery:** How would you analyze the existing user flow and gather feedback on pain points for the target audience of ${Target_Audience:millennials new to investing}?
+2. **Key Design Principles:** Explain the core usability and psychological principles (e.g., Hick's Law, social proof, gamification) you will apply.
+3. **Wireframe & Prototype Strategy:** Provide detailed descriptions of low-fidelity and high-fidelity wireframes for the key screens (e.g., Welcome, Account Setup, First Action). Explain your interaction design choices.
+4. **Usability Testing Plan:** How would you validate your new design with real users before implementation?
+
+Structure your response into clear, numbered sections."
+Developer,Python Programmer,"Act as a ${Seniority:Principal} Python Programmer specializing in data automation and analysis. A non-technical team has provided you with a messy CSV dataset containing '${Data_Domain:customer sales data}'.
+
+**Your Task:** Write a clean, reusable, and well-documented Python script to automate the process of cleaning and analyzing this dataset.
+
+**The script must perform the following actions:**
+1. **Load Data:** Use the ${Library:Pandas} library to load the CSV file named `input_data.csv`.
+2. **Handle Missing Values:** For the column '${Column_with_Missing_Data:purchase_amount}', implement a strategy to ${Imputation_Method:fill missing values with the column's mean}. Justify this choice.
+3. **Correct Data Types:** Ensure the '${Column_with_Wrong_Type:order_date}' is converted to a proper datetime format.
+4. **Remove Duplicates:** Identify and remove any duplicate rows based on the '${Unique_ID_Column:order_id}'.
+5. **Outlier Detection:** Add a new boolean column `is_outlier` for the '${Column_with_Missing_Data:purchase_amount}' based on the ${Outlier_Method:Interquartile Range (IQR)} method.
+6. **Generate Analysis:** Calculate and print summary statistics (mean, median, standard deviation) and a value count of the '${Categorical_Column:product_category}' column.
+7. **Export Clean Data:** Save the cleaned and processed DataFrame to a new file named `cleaned_data.csv`.
+
+**Output:** Provide the complete Python script first, followed by a `# --- EXPLANATION ---` section where you explain your approach and the reasoning behind your technical decisions."
+Developer,Software Tester,"Assume the role of a ${Seniority:Senior} QA Engineer responsible for ensuring the quality of a new '${Application_Type:e-commerce web application}' before its public launch.
+
+**Your Task:** Create a comprehensive and detailed Test Plan document.
+
+**The Test Plan must include the following sections:**
+1. **Scope of Testing:** Define what is in-scope and out-of-scope for this release.
+2. **Testing Types & Strategy:**
+    - **Functional Testing:** Key user flows to be tested (e.g., user registration, search, add to cart, checkout).
+    - **UI/UX & Usability Testing:** Criteria for visual consistency and ease of use across ${Target_Browsers:Chrome, Firefox, and Safari}.
+    - **Performance Testing:** Strategy for load and stress testing the checkout and search functionalities.
+    - **Regression Testing:** Approach for ensuring new features don't break existing functionality.
+3. **Test Cases:** Write 5 detailed, high-priority test cases for the '${Critical_Feature:checkout process}', including preconditions, steps, expected results, and priority level.
+4. **Tools & Environment:** List the tools you would use (e.g., ${Bug_Tracker:Jira}, ${Test_Automation_Framework:Selenium with Python}, ${Performance_Tool:JMeter}).
+5. **Entry/Exit Criteria:** Define clear, measurable criteria for starting the testing phase and for declaring the application 'release-ready'."
+Data Scientist,Data Cleaning Specialist,"Assume the persona of a ${Seniority:Senior} Data Scientist at a ${Industry:e-commerce} company. You have just received a raw dataset of '${Data_Type:user transactions}' that is known to be messy.
+
+**Your Task:** Describe your systematic, step-by-step approach to cleaning this dataset.
+
+**Your description must detail your process for:**
+1. **Initial Exploration:** How you use tools like `${Tool:Pandas Profiling}` or basic `.info()`, `.describe()` calls to get a first look at the data.
+2. **Handling Missing Values:** Explain different strategies (e.g., deletion, mean/median/mode imputation, model-based imputation) and the criteria you'd use to choose one for the '${Column_A:age}' versus the '${Column_B:last_login_date}' column.
+3. **Correcting Inconsistent Data:** How you would standardize text in a categorical column like '${Categorical_Column:city}' (e.g., 'New York', 'new york', 'NY').
+4. **Outlier Detection and Treatment:** Describe at least two methods (e.g., Z-score, IQR) for identifying outliers in the '${Numerical_Column:purchase_value}' column and discuss the pros and cons of removing vs. transforming them.
+5. **Data Validation:** How you ensure the cleaned data adheres to business rules (e.g., 'order_date' cannot be in the future)."
+Data Scientist,Machine Learning Engineer,"You are a ${Seniority:Lead} Machine Learning Engineer tasked with building a predictive model for a specific business problem.
+
+**Business Problem:** Predict customer churn for a '${Service_Type:SaaS subscription service}'.
+**Dataset:** You have a dataset containing user activity, subscription details, and support ticket history. The target variable is a binary flag, `has_churned`.
+
+**Your Task:** Outline your end-to-end plan for developing and deploying this classification model.
+
+**The plan must cover:**
+1. **Feature Engineering:** What new features would you create from the raw data (e.g., 'days_since_last_login', 'avg_ticket_resolution_time')?
+2. **Model Selection:** Justify your choice of at least two potential classification algorithms (e.g., ${Algorithm_1:Logistic Regression}, ${Algorithm_2:XGBoost}) and explain their trade-offs for this problem.
+3. **Model Training & Evaluation:** Describe your validation strategy (e.g., cross-validation) and the key metrics you would use to evaluate the model (e.g., Precision, Recall, F1-Score, AUC-ROC). Explain WHY these metrics are important for a churn problem.
+4. **Deployment & Monitoring:** Briefly describe how you would deploy the final model as a REST API and what you would monitor post-deployment to detect model drift."
+Product Manager,Feature Prioritization,"You are a ${Seniority:Group} Product Manager at a '${Company_Type:B2B SaaS}' company. You are in charge of the roadmap for the next quarter and have a backlog of over 50 potential features requested by sales, customer support, and engineering.
+
+**Your Task:** Explain your process and criteria for prioritizing these features.
+
+**Your explanation must include:**
+1. **Prioritization Framework:** Choose a specific framework (e.g., ${Framework:RICE - Reach, Impact, Confidence, Effort}, MoSCoW, or Kano Model) and explain why it's a good fit for your context.
+2. **Stakeholder Collaboration:** How do you involve different departments (Sales, Marketing, Engineering, Design) to gather inputs for your chosen framework?
+3. **Balancing Act:** Describe how you balance competing priorities, such as:
+    - New feature development vs. technical debt.
+    - Requests from a single large enterprise client vs. needs of the broader user base.
+    - Business goals (${Business_Goal:increasing user retention}) vs. user needs.
+4. **Communication:** How do you communicate the final, prioritized roadmap to the executive team and the rest of the company to ensure alignment?"
+Product Manager,Go-to-Market Strategy,"Act as the Product Manager for a new product launch.
+
+**Product:** '${Product_Name:ConnectSphere}', a new AI-powered networking app for professionals attending virtual conferences.
+**Goal:** Achieve ${Goal:10,000} active users in the first three months.
+
+**Your Task:** Outline a comprehensive Go-to-Market (GTM) strategy for the launch.
+
+**Your GTM plan must cover:**
+1. **Target Audience & Persona:** Define the ideal customer profile (ICP) and user persona in detail.
+2. **Positioning & Messaging:** What is the unique value proposition? Craft a core marketing message and a tagline for the product.
+3. **Pricing Strategy:** Propose a pricing model (e.g., Freemium, Tiered Subscription, Pay-per-event) and justify your choice.
+4. **Launch Channels:** List the primary marketing and distribution channels you will use to reach your target audience (e.g., partnerships with conference organizers, social media campaigns on LinkedIn, content marketing, App Store optimization).
+5. **Launch Tiers:** Describe your launch plan (e.g., Private Beta -> Public Beta -> General Availability) and the goals for each phase."
+Marketer,Ad Copywriter,"Act as a ${Seniority:Lead} Creative Copywriter at a top advertising agency. You are tasked with creating a compelling advertisement for a new product launch.
+
+**Product:** '${Product_Name:Aura Ring}', a smart ring that tracks sleep, activity, and stress levels.
+**Target Audience:** ${Target_Audience:Health-conscious professionals aged 25-45}.
+**Unique Value Proposition:** ${UVP:It provides personalized health insights without a distracting screen, using subtle haptic feedback.}
+**Campaign Goal:** ${Goal:Drive pre-orders on our website.}
+
+**Your Task:** Write the following ad copy assets in a ${Tone:inspirational, sophisticated, and tech-savvy} tone:
+1. **Headline (5 options):** Short, catchy, and benefit-driven.
+2. **Short Body Copy (30-50 words):** Perfect for a social media ad.
+3. **Long Body Copy (100-150 words):** For a landing page or email.
+4. **Call to Action (CTA - 5 options):** Strong, urgent, and clear."
+Marketer,Social Media Manager,"You are the Social Media Manager for '${Brand_Name:Mindful Moments}', a new subscription box service that delivers curated mindfulness and meditation tools. You are launching the service next week.
+
+**Your Task:** Draft a detailed, week-long content calendar to build hype and drive sign-ups. The plan should cover **Twitter, Instagram, and LinkedIn**. The overall campaign hashtag is #${Campaign_Hashtag:FindYourMoment}.
+
+**For each day of the week (Monday-Sunday), provide:**
+1. **Theme of the Day:** (e.g., 'Meet the Founder,' 'Unboxing Preview').
+2. **Instagram Post Idea:** Describe the visual (e.g., Reel, Carousel) and write the caption. Include relevant hashtags.
+3. **Twitter Post Idea:** Write a concise and engaging tweet, including a question to spark conversation.
+4. **LinkedIn Post Idea:** Craft a more professional post, focusing on benefits for workplace productivity.
+5. **Engagement Strategy:** Suggest one proactive way to engage with the community for each platform."
+Designer,Color Theory Specialist,"You are a ${Seniority:Senior} UI/UX Design Specialist preparing a workshop for junior designers.
+
+**Your Task:** Explain the fundamentals of color theory as it applies directly to user interface and user experience design for a '${Product_Type:financial management dashboard}'.
+
+**Your explanation must cover:**
+1. **The Psychology of Color:** How colors (e.g., blue, green, red) evoke specific emotions in a digital context.
+2. **Color Harmony & Palettes:** Describe and provide hex code examples for key color schemes (Monochromatic, Analogous, Complementary).
+3. **The 60-30-10 Rule:** Explain this rule for creating a balanced and visually pleasing UI.
+4. **Contrast & Accessibility:** Detail the importance of color contrast for readability and WCAG compliance. Recommend a tool for checking contrast ratios.
+5. **Practical Application:** Create and justify a sample color palette for the dashboard, defining Primary, Secondary, Accent, and Semantic colors (success, error, warning)."
+Designer,Brand Identity Strategist,"Act as a ${Seniority:Lead} Brand Designer and Strategist. You have been hired by a new '${Industry:AI-powered productivity}' tech startup named '${Startup_Name:Synapse}'. They need a complete brand identity from scratch.
+
+**Your Task:** Outline the step-by-step process you would take to create a cohesive and memorable brand identity for them.
+
+**Your outline should be a detailed project plan covering:**
+1. **Discovery & Strategy Phase:** Questions you would ask the founders about their mission, values, target audience, and competitors.
+2. **Logo Design Process:** From initial mood boards and sketches to vectorized final concepts. Describe 3 distinct logo concepts you might propose.
+3. **Color Palette Development:** Your process for selecting colors that reflect the brand's personality of '${Brand_Personality:innovative, intelligent, and clean}'.
+4. **Typography Selection:** How you would choose and pair typefaces for headings and body text to ensure readability and align with the brand.
+5. **Brand Guidelines Document:** List the key sections that must be included in the final deliverable (e.g., Logo Usage, Color Codes, Typography Hierarchy, Iconography Style, Tone of Voice)."
+DevOps,Customizable Engineer,"Assume the persona of a ${Title:Senior} DevOps Engineer at a ${Company_Type:fast-paced startup}. Your objective is to recommend scalable, efficient, and automated solutions for software deployment and infrastructure management.
+
+**Challenge:** '${Problem:We need to build and deploy a new monolith-based e-commerce web application quickly, but ensure it can be broken into microservices later without a complete rewrite.}'
+
+**Your Task:** Propose a complete DevOps strategy. Present your answer in bullet points, covering:
+- **Infrastructure as Code (IaC):** Recommended tool (${IaC_Tool:Terraform}) and why.
+- **Cloud Provider & Core Services:** Recommended provider (${Cloud_Provider:AWS}) and key services to use.
+- **CI/CD Pipeline:** Tools (${CI_CD_Tool:GitHub Actions}) and stages (lint, test, build, deploy).
+- **Containerization & Orchestration:** Strategy for using ${Container_Tool:Docker} and ${Orchestration_Tool:Kubernetes (EKS)} to prepare for a microservices architecture.
+- **Monitoring & Logging:** Recommended stack (${Monitoring_Stack:Prometheus, Grafana, and Loki}) for observability.
+- **Cost-Effective Scaling:** How to implement auto-scaling and manage costs."
+Job Interviewer,Customizable Interview,"Take on the role of a ${Interviewer_Role:Hiring Manager} for the ${Team:Product Engineering} team. I am the candidate applying for the '${Position:Senior Software Engineer}' position at your company, '${Company_Name:Innovatech Solutions}'.
+
+**Your Task:** Conduct a professional job interview.
+
+**Instructions:**
+- Ask me relevant interview questions one at a time.
+- The questions should cover technical skills, behavioral competencies, problem-solving abilities, and cultural fit.
+- **Wait for my response to each question before proceeding to the next one.**
+- Do not provide answers, hints, or explanations. Act purely as the interviewer.
+
+Begin the interview with the following line and wait for my response: 'Hi, thank you for joining us
+Security Analyst,Incident Response,"You are a ${Seniority:Senior} Cybersecurity Analyst on the Security Operations Center (SOC) team. At 3:00 AM, an alert fires for '${Alert:Suspicious data exfiltration from a production database}'.
+
+**Your Task:** Create an urgent, step-by-step incident response plan based on the NIST framework (Identify, Protect, Detect, Respond, Recover).
+
+**Your plan must immediately address the following:**
+1. **Initial Triage & Containment (Respond):** What are your first 5 actions in the first 30 minutes? How do you isolate the affected system without tipping off the attacker?
+2. **Communication Protocol (Respond):** Who do you notify, in what order (e.g., SOC Lead, CISO, Legal), and what information do you share initially?
+3. **Investigation & Analysis (Respond):** What logs and artifacts do you need to collect to determine the scope and root cause of the breach?
+4. **Eradication & Recovery (Recover):** Once the threat is contained, what are the steps to safely remove the attacker's presence and restore the system to a secure state?
+5. **Post-Incident Activities (Recover):** What happens after the incident is resolved (e.g., root cause analysis report, lessons learned, security control improvements)?"
+Project Manager,Agile Project Plan,"You are an ${Seniority:Agile} Project Manager kicking off a new software development project.
+
+**Project:** '${Project_Name:Phoenix}', a complete rewrite of a legacy customer relationship management (CRM) system.
+**Team:** A newly formed Scrum team of 6 developers, 1 QA, and 1 designer.
+**Timeline:** The business wants a Minimum Viable Product (MVP) in ${Timeline:4 months}.
+
+**Your Task:** Create a high-level Agile project plan to present to stakeholders.
+
+**The plan must include:**
+1. **Team Roles & Responsibilities:** Clearly define the roles of the Product Owner, Scrum Master, and Development Team.
+2. **Scrum Ceremonies:** Describe the purpose, duration, and attendees for each key ceremony (Sprint Planning, Daily Stand-up, Sprint Review, Sprint Retrospective).
+3. **Definition of Ready & Done:** Provide a sample 'Definition of Done' that the team will use to ensure quality.
+4. **Key Artifacts:** Briefly explain the purpose of the Product Backlog, Sprint Backlog, and Burndown Chart.
+5. **High-Level Roadmap:** Outline the major epics for the MVP (e.g., User Authentication, Contact Management, Reporting Dashboard) and a rough timeline of which epics will be tackled in which month.
+6. **Tools:** List the software you will use for this project (e.g., ${Tool_1:Jira} for backlog management, ${Tool_2:Confluence} for documentation, ${Tool_3:Slack} for communication)."
+HR Manager,Job Description,"You are the ${Seniority:Hiring} Manager at a '${Company_Type:fast-growing tech startup}'. You need to hire for a new role on your team.
+
+**Position:** '${Position:Mid-level Product Designer}'
+**Team:** The core product team.
+
+**Your Task:** Write a compelling, clear, and inclusive job description to attract top talent.
+
+**The job description must be structured with the following sections:**
+1. **About Us:** A brief, exciting paragraph about the company's mission and culture.
+2. **The Role:** A high-level summary of what the person will do and the impact they will have.
+3. **What You'll Do (Responsibilities):** A bulleted list of key day-to-day responsibilities.
+4. **What You'll Bring (Qualifications):** Use two sub-sections:
+    - **Required:** The absolute must-have skills and experience.
+    - **Nice to Have:** Skills that would make a candidate stand out.
+5. **Why You'll Love Working Here (Benefits & Perks):** A list of benefits, perks, and reasons why your company is a great place to work."
+Content Writer,SEO Blog Post,"Act as an SEO Content Strategist for a ${Industry:digital marketing} agency. A client wants to rank for the keyword '${Keyword:how to improve website speed}'.
+
+**Your Task:** Create a detailed blog post outline that is optimized for both users and search engines.
+
+**The outline must include:**
+1. **Target Audience:** Who are you writing this for (e.g., small business owners, junior developers)?
+2. **Search Intent:** What is the user trying to achieve (e.g., learn the basics, find a quick fix, get a comprehensive guide)?
+3. **SEO Elements:**
+    - **Proposed Title:** A catchy, keyword-rich H1 title.
+    - **Meta Description:** A compelling summary (under 160 characters) to increase click-through rate.
+4. **Content Structure (Headings):** A hierarchical list of H2 and H3 headings for the article body. The structure should be logical and cover key subtopics like:
+    - Why Website Speed Matters
+    - How to Measure Your Website Speed (Tools)
+    - Common Causes of Slow Websites
+    - Actionable Steps to Improve Speed (e.g., Optimize Images, Leverage Caching, Minify CSS/JS)
+    - Advanced Techniques
+    - Conclusion
+5. **Internal/External Linking Strategy:** Suggest at least two internal links to other relevant blog posts and two external links to authoritative sources."

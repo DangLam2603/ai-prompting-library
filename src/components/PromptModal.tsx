@@ -101,8 +101,8 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
         <div
           className="card modal-customizable-inner"
           style={{
-            maxWidth: 900,
-            width: "95%",
+            maxWidth: 1100,
+            width: "98%",
             position: "relative",
             background: "#292c36",
             display: "flex",
@@ -133,8 +133,8 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
           <div
             style={{
               flex: 1,
-              minWidth: 320,
-              maxWidth: 400,
+              minWidth: 280,
+              maxWidth: 350,
               background: "#292c36",
               padding: "2rem 1.5rem 1.5rem 1.5rem",
               display: "flex",
@@ -143,7 +143,14 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
             }}
           >
             <h2 style={{ marginTop: 0, color: "#38bdf8" }}>{prompt.title}</h2>
-            <div style={{ marginBottom: "1.2rem", marginTop: "1.2rem" }}>
+            <div
+              style={{
+                maxHeight: "60vh",
+                overflowY: "auto",
+                marginBottom: "1.2rem",
+                marginTop: "1.2rem",
+              }}
+            >
               {variables.map((v) => (
                 <div key={v.key} style={{ marginBottom: "0.7rem" }}>
                   <label
@@ -182,9 +189,9 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
           {/* Right: Prompt Preview Panel */}
           <div
             style={{
-              flex: 1.3,
-              minWidth: 320,
-              maxWidth: 500,
+              flex: 2,
+              minWidth: 500,
+              maxWidth: 800,
               background: "#23262f",
               padding: "2rem 1.5rem 1.5rem 1.5rem",
               display: "flex",
@@ -209,7 +216,7 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
                 background: "#22252c",
                 borderRadius: 8,
                 padding: 12,
-                maxHeight: 300,
+                maxHeight: "60vh",
                 overflowY: "auto",
                 wordBreak: "break-word",
               }}
