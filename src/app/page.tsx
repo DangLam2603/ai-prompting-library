@@ -87,7 +87,7 @@ export default function Home() {
               letterSpacing: "-1px",
             }}
           >
-            {selectedRole ? selectedRole : "Select a Role"}
+            {selectedRole ? selectedRole : ""}
           </h1>
         </div>
         <div className="card-grid">
