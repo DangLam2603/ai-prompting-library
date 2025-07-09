@@ -31,7 +31,13 @@ export default function Home() {
   return (
     <div className="layout">
       <aside className="sidebar">
-        <div className="sidebar-title">Prompt Library</div>
+        <div
+          className="sidebar-title"
+          style={{ cursor: "pointer" }}
+          onClick={() => setSelectedRole(null)}
+        >
+          Prompt Library
+        </div>
         <input
           className="sidebar-role-search"
           placeholder="Search roles..."
@@ -64,7 +70,7 @@ export default function Home() {
         </div>
       </aside>
       <main className="main-content">
-        <CustomPromptSection />
+        {selectedRole === null && <CustomPromptSection />}
         <div
           style={{
             display: "flex",
