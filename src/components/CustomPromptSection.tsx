@@ -169,7 +169,7 @@ const CustomPromptSection: React.FC = () => {
           padding: "2rem 1.5rem 1.5rem 1.5rem",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "flex-start",
+          justifyContent: "space-between",
         }}
       >
         <h2 style={{ marginTop: 0, color: "#38bdf8" }}>
