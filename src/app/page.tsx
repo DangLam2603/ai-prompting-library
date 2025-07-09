@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import PromptCard, { Prompt } from "../components/PromptCard";
 import PromptModal from "../../src/components/PromptModal";
 import { fetchPrompts } from "../components/csvParser";
+import CustomPromptSection from "../components/CustomPromptSection";
 
 export default function Home() {
   const [prompts, setPrompts] = useState<Prompt[]>([]);
@@ -63,6 +64,7 @@ export default function Home() {
         </div>
       </aside>
       <main className="main-content">
+        <CustomPromptSection />
         <div
           style={{
             display: "flex",

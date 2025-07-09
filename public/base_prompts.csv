@@ -1,0 +1,2 @@
+role,title,prompt
+Custom,Customizable Prompt,"You are a ${Title:Senior} professional at ${Company Type:Big Company}. Your task is: ${Task:Describe your task here}. Please provide a detailed plan." 
