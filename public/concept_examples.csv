@@ -1,0 +1,18 @@
+concept,example
+Persona,You are a 
+Persona,I want you to be a 
+Persona,You are a marketing specialist
+Task,Draft an executive summary email
+Task,Write a project status update
+Task,Create a product launch plan
+Context,for a quarterly review
+Context,for a new product launch
+Context,for a client meeting
+Format,in bullet points
+Format,as a formal letter
+Format,as a concise summary
+Example,Here is a sample executive summary: ...
+Example,Sample project update: ...
+Tone,Use a formal and concise tone
+Tone,Be friendly and encouraging
+Tone,Make it persuasive and confident 
