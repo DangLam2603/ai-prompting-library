@@ -184,14 +184,14 @@ export default function Home() {
           }}
         >
           <h1
-            className="text-accent"
+            className="text-accent centered-title"
             style={{
               fontWeight: 800,
               fontSize: "2.2rem",
               letterSpacing: "-1px",
             }}
           >
-            {selectedRole ? selectedRole : ""}
+            {selectedRole ? selectedRole : "Developer"}
           </h1>
         </div>
         <div className="card-grid">

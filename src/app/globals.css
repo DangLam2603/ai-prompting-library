@@ -130,6 +130,15 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  align-items: center; /* Center content horizontally */
+}
+
+.centered-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
 }
 
 .card-grid {
@@ -137,6 +146,24 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  justify-items: center; /* Center cards in grid cells */
+  width: 100%;
+  max-width: 900px;
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 1rem 0.2rem 1rem 0.2rem;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 98vw;
+  }
+  .centered-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 1rem;
+  }
 }
 
 .card {
