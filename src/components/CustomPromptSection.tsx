@@ -138,7 +138,7 @@ const CustomPromptSection: React.FC = () => {
         }}
       >
         <h2 style={{ marginTop: 0, color: "#38bdf8" }}>
-          Custom Prompt Builder
+          Custom Prompt Generate
         </h2>
         <div style={{ marginBottom: "1.2rem", marginTop: "1.2rem" }}>
           <div style={{ marginBottom: "1.2rem" }}>

@@ -12,6 +12,10 @@ export default function Home() {
   const [modalPrompt, setModalPrompt] = useState<Prompt | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [roleSearch, setRoleSearch] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
 
   useEffect(() => {
     fetchPrompts().then((data) => {
@@ -19,6 +23,23 @@ export default function Home() {
       setRoles(Array.from(new Set(data.map((p) => p.role))));
     });
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [sidebarOpen]);
 
   const filteredRoles = roles.filter((role) =>
     role.toLowerCase().includes(roleSearch.toLowerCase())
@@ -30,47 +51,130 @@ export default function Home() {
 
   return (
     <div className="layout">
-      <aside className="sidebar">
-        <div
-          className="sidebar-title"
-          style={{ cursor: "pointer" }}
-          onClick={() => setSelectedRole(null)}
-        >
-          Prompt Library
-        </div>
-        <input
-          className="sidebar-role-search"
-          placeholder="Search roles..."
-          style={{
-            width: "100%",
-            marginBottom: "1rem",
-            padding: "0.5em 0.8em",
-            borderRadius: 7,
-            border: "1px solid #31343c",
-            background: "#23262f",
-            color: "#f3f4f6",
-            fontSize: "1rem",
-            outline: "none",
-          }}
-          value={roleSearch}
-          onChange={(e) => setRoleSearch(e.target.value)}
-        />
-        <div className="sidebar-role-list">
-          {filteredRoles.map((role) => (
-            <button
-              key={role}
-              className={
-                "sidebar-role" + (selectedRole === role ? " selected" : "")
-              }
-              onClick={() => setSelectedRole(role)}
+      {/* Hamburger and Drawer for mobile only */}
+      {windowWidth < 900 && (
+        <>
+          <button
+            className="sidebar-hamburger"
+            aria-label="Open sidebar"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <span className="sidebar-hamburger-bar" />
+            <span className="sidebar-hamburger-bar" />
+            <span className="sidebar-hamburger-bar" />
+          </button>
+          {sidebarOpen && (
+            <div
+              className="sidebar-overlay"
+              onClick={() => setSidebarOpen(false)}
+            />
+          )}
+          <aside
+            className={`sidebar sidebar-drawer${sidebarOpen ? " open" : ""}`}
+          >
+            <div
+              className="sidebar-title"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                setSelectedRole(null);
+                setSidebarOpen(false);
+              }}
             >
-              {role}
+              Prompt Library
+            </div>
+            <input
+              className="sidebar-role-search"
+              placeholder="Search roles..."
+              style={{
+                width: "100%",
+                marginBottom: "1rem",
+                padding: "0.5em 0.8em",
+                borderRadius: 7,
+                border: "1px solid #31343c",
+                background: "#23262f",
+                color: "#f3f4f6",
+                fontSize: "1rem",
+                outline: "none",
+              }}
+              value={roleSearch}
+              onChange={(e) => setRoleSearch(e.target.value)}
+            />
+            <div className="sidebar-role-list">
+              {filteredRoles.map((role) => (
+                <button
+                  key={role}
+                  className={
+                    "sidebar-role" + (selectedRole === role ? " selected" : "")
+                  }
+                  onClick={() => {
+                    setSelectedRole(role);
+                    setSidebarOpen(false);
+                  }}
+                >
+                  {role}
+                </button>
+              ))}
+            </div>
+            <button
+              className="sidebar-close-btn"
+              aria-label="Close sidebar"
+              onClick={() => setSidebarOpen(false)}
+            >
+              ×
             </button>
-          ))}
-        </div>
-      </aside>
+          </aside>
+        </>
+      )}
+      {/* Static sidebar for tablet/desktop */}
+      {windowWidth >= 900 && (
+        <aside className="sidebar">
+          <div
+            className="sidebar-title"
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              setSelectedRole(null);
+            }}
+          >
+            Prompt Library
+          </div>
+          <input
+            className="sidebar-role-search"
+            placeholder="Search roles..."
+            style={{
+              width: "100%",
+              marginBottom: "1rem",
+              padding: "0.5em 0.8em",
+              borderRadius: 7,
+              border: "1px solid #31343c",
+              background: "#23262f",
+              color: "#f3f4f6",
+              fontSize: "1rem",
+              outline: "none",
+            }}
+            value={roleSearch}
+            onChange={(e) => setRoleSearch(e.target.value)}
+          />
+          <div className="sidebar-role-list">
+            {filteredRoles.map((role) => (
+              <button
+                key={role}
+                className={
+                  "sidebar-role" + (selectedRole === role ? " selected" : "")
+                }
+                onClick={() => {
+                  setSelectedRole(role);
+                }}
+              >
+                {role}
+              </button>
+            ))}
+          </div>
+        </aside>
+      )}
       <main className="main-content">
-        {selectedRole === null && <CustomPromptSection />}
+        <div className="custom-prompt-mobile-wrapper">
+          {selectedRole === null && <CustomPromptSection />}
+        </div>
         <div
           style={{
             display: "flex",

@@ -191,3 +191,137 @@ body {
 .copy-btn:hover {
   background: #174ea6;
 }
+
+/* Responsive PromptCard styles */
+.responsive-card {
+  margin: 1.2rem 0.5rem;
+}
+
+.prompt-title {
+  margin: 0 0 0.5em 0;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+/* Base Styles */
+.sidebar {
+  background: var(--color-sidebar, #1e1e2f);
+  border-right: 1px solid var(--color-border, #444);
+  padding: 2rem 1.2rem;
+  gap: 1.2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-hamburger {
+  display: none;
+}
+
+/* Static Sidebar on Wide Screens (>= 901px) */
+@media (min-width: 901px) {
+  .sidebar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 90vh;
+    min-width: 180px;
+    max-width: 260px;
+    box-shadow: none;
+    z-index: 1;
+  }
+
+  .sidebar-hamburger {
+    display: none !important;
+  }
+
+  .sidebar-overlay,
+  .sidebar-close-btn {
+    display: none;
+  }
+}
+
+/* Mobile/Tablet Sidebar Drawer (< 900px) */
+@media (max-width: 900px) {
+  /* Hide static sidebar */
+  .sidebar:not(.sidebar-drawer) {
+    display: none;
+  }
+
+  /* Drawer sidebar styles */
+  .sidebar.sidebar-drawer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80vw;
+    max-width: 320px;
+    min-width: 220px;
+    background: var(--color-sidebar, #1e1e2f);
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.18);
+    border-right: 1px solid var(--color-border, #444);
+    z-index: 202;
+    flex-direction: column;
+    padding: 2rem 1.2rem;
+    gap: 1.2rem;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.sidebar-drawer.open {
+    transform: translateX(0);
+  }
+
+  /* Hamburger Button */
+  .sidebar-hamburger {
+    display: flex !important;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 201;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    flex-direction: column;
+    gap: 0.25rem;
+    cursor: pointer;
+  }
+
+  .sidebar-hamburger span {
+    width: 24px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  /* Overlay */
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 200;
+    display: none;
+  }
+
+  .sidebar-overlay.open {
+    display: block;
+  }
+
+  /* Close Button inside Drawer */
+  .sidebar-close-btn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 203;
+  }
+}

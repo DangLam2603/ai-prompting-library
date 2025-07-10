@@ -15,9 +15,9 @@ interface PromptCardProps {
 const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
   return (
     <div
-      className="card"
+      className="card responsive-card"
       onClick={onClick}
-      style={{ margin: "1.2rem", cursor: "pointer" }}
+      style={{ cursor: "pointer" }}
     >
       <button
         className="copy-btn"
@@ -29,24 +29,13 @@ const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
       >
         📋
       </button>
-      <h3
-        style={{ margin: "0 0 0.5em 0", fontWeight: 700, fontSize: "1.25rem" }}
-      >
-        {prompt.title}
-      </h3>
-      <div
-        style={{
-          color: "#6b7280",
-          fontSize: "1rem",
-          marginBottom: "1.2em",
-          flex: 1,
-        }}
-      >
+      <h3 className="prompt-title">{prompt.title}</h3>
+      <div className="prompt-content">
         {prompt.prompt.length > 120
           ? prompt.prompt.slice(0, 120) + "…"
           : prompt.prompt}
       </div>
-      <div style={{ display: "flex", alignItems: "center", marginTop: "auto" }}>
+      <div className="prompt-footer">
         <span className="badge">{prompt.role}</span>
         {prompt.author && <span className="badge">@{prompt.author}</span>}
       </div>
