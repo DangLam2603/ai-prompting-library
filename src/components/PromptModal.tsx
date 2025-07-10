@@ -329,7 +329,7 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
           .modal-customizable-inner {
             flex-direction: column !important;
             max-width: 90vw !important;
-            max-height: 88vh !important;
+            max-height: 85vh !important;
             min-width: 0 !important;
             min-height: 0 !important;
             height: auto !important;
