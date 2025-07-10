@@ -248,13 +248,18 @@ body {
 @media (min-width: 901px) {
   .sidebar {
     display: flex;
-    position: sticky;
+    position: fixed;
     top: 0;
-    height: 90vh;
-    min-width: 180px;
+    left: 0;
+    height: 100vh;
+    min-width: 220px;
     max-width: 260px;
+    width: 400px;
     box-shadow: none;
-    z-index: 1;
+    z-index: 10;
+  }
+  .main-content {
+    margin-left: 220px;
   }
 
   .sidebar-hamburger {

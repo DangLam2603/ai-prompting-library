@@ -126,7 +126,7 @@ export default function Home() {
         </>
       )}
       {/* Static sidebar for tablet/desktop */}
-      {windowWidth >= 600 && (
+      {windowWidth >= 900 && (
         <aside className="sidebar">
           <div
             className="sidebar-title"
