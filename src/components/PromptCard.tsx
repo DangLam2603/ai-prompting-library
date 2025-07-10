@@ -35,7 +35,10 @@ const PromptCard: React.FC<PromptCardProps> = ({ prompt, onClick }) => {
           ? prompt.prompt.slice(0, 120) + "…"
           : prompt.prompt}
       </div>
-      <div className="prompt-footer">
+      <div
+        className="prompt-footer"
+        style={{ marginTop: "1rem", display: "flex", alignItems: "center" }}
+      >
         <span className="badge">{prompt.role}</span>
         {prompt.author && <span className="badge">@{prompt.author}</span>}
       </div>
