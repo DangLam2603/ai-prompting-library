@@ -325,19 +325,35 @@ const PromptModal: React.FC<PromptModalProps> = ({ open, prompt, onClose }) => {
         </div>
       )}
       <style>{`
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
           .modal-customizable-inner {
             flex-direction: column !important;
-            max-width: 98vw !important;
+            max-width: 80vw !important;
+            max-height: 90vh !important;
             min-width: 0 !important;
+            min-height: 0 !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            overflow-y: auto !important;
+            padding: 1rem !important;
           }
           .modal-customizable-inner > div {
             max-width: 100% !important;
             min-width: 0 !important;
-            padding: 1.2rem 1rem 1rem 1rem !important;
+            padding: 0.1rem 0.05rem 0.1rem 0.05rem !important;
+            font-size: 0.85rem !important;
+            overflow-y: auto !important;
           }
           .modal-customizable-inner > div[style*='width: 1px'] {
             display: none !important;
+          }
+          .modal-static-inner {
+            max-width: 80vw !important;
+            max-height: 70vh !important;
+            min-width: 0 !important;
+            padding: 0.1rem 0.05rem 0.1rem 0.05rem !important;
+            font-size: 0.85rem !important;
+            overflow-y: auto !important;
           }
         }
       `}</style>

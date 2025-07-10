@@ -126,7 +126,7 @@ export default function Home() {
         </>
       )}
       {/* Static sidebar for tablet/desktop */}
-      {windowWidth >= 900 && (
+      {windowWidth >= 600 && (
         <aside className="sidebar">
           <div
             className="sidebar-title"
@@ -184,14 +184,14 @@ export default function Home() {
           }}
         >
           <h1
-            className="text-accent centered-title"
+            className="text-accent"
             style={{
               fontWeight: 800,
               fontSize: "2.2rem",
               letterSpacing: "-1px",
             }}
           >
-            {selectedRole ? selectedRole : "Developer"}
+            {selectedRole ? selectedRole : ""}
           </h1>
         </div>
         <div className="card-grid">
